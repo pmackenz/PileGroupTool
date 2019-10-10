@@ -872,8 +872,9 @@ void MainWindow::setActiveLayer(int layerIdx)
     ui->layerThickness->setValue(mSoilLayers[layerIdx].getLayerThickness());
     ui->layerDryWeight->setValue(mSoilLayers[layerIdx].getLayerUnitWeight());
     ui->layerSaturatedWeight->setValue(mSoilLayers[layerIdx].getLayerSatUnitWeight());
-    ui->layerFrictionAngle->setValue(mSoilLayers[layerIdx].getLayerFrictionAng());
     ui->layerShearModulus->setValue((mSoilLayers[layerIdx].getLayerStiffness()/1.e3));
+    ui->layerFrictionAngle->setValue(mSoilLayers[layerIdx].getLayerFrictionAng());
+    ui->layerCohesion->setValue(mSoilLayers[layerIdx].getLayerCohesion());
 
     inSetupState = false;
 
@@ -985,6 +986,26 @@ void MainWindow::on_layerFrictionAngle_valueChanged(double arg1)
     }
     if (layerIdx >= 0) {
         mSoilLayers[layerIdx].setLayerFrictionAng(val);
+        this->updateLayerState();
+        this->doAnalysis();
+        this->updateSystemPlot();
+    }
+}
+
+void MainWindow::on_layerCohesion_valueChanged(double arg1)
+{
+    double val;
+    int layerIdx = findActiveLayer();
+
+    if (arg1 < 0.0) {
+        val = 0.0;
+        ui->layerCohesion->setValue(val);
+    }
+    else {
+        val = arg1;
+    }
+    if (layerIdx >= 0) {
+        mSoilLayers[layerIdx].setLayerCohesion(val);
         this->updateLayerState();
         this->doAnalysis();
         this->updateSystemPlot();

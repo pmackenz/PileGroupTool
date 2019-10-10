@@ -55,7 +55,7 @@
        <enum>QTabWidget::West</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="usesScrollButtons">
        <bool>false</bool>
@@ -517,13 +517,24 @@
               <property name="horizontalSpacing">
                <number>12</number>
               </property>
-              <item row="1" column="1">
-               <widget class="QDoubleSpinBox" name="layerThickness"/>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_gamma">
+                <property name="text">
+                 <string>dry unit weight</string>
+                </property>
+               </widget>
               </item>
               <item row="1" column="0">
-               <widget class="QLabel" name="label_12">
+               <widget class="QLabel" name="label_thickness">
                 <property name="text">
                  <string>thickness</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLabel" name="unit_gamma">
+                <property name="text">
+                 <string>kN/m3</string>
                 </property>
                </widget>
               </item>
@@ -540,80 +551,70 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="2">
-               <widget class="QLabel" name="label_15">
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_G">
                 <property name="text">
-                 <string>kN/m3</string>
+                 <string>Shear modulus</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="2">
-               <widget class="QLabel" name="label_16">
+              <item row="6" column="2">
+               <widget class="QLabel" name="unit_G">
                 <property name="text">
-                 <string>kN/m3</string>
+                 <string>MPa</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="1">
-               <widget class="QDoubleSpinBox" name="layerSaturatedWeight"/>
+              <item row="1" column="1">
+               <widget class="QDoubleSpinBox" name="layerThickness"/>
               </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="label_13">
+              <item row="0" column="0" colspan="3">
+               <widget class="QLabel" name="labelLayerProperties">
                 <property name="text">
-                 <string>friction angle</string>
+                 <string>Layer Properties</string>
                 </property>
                </widget>
               </item>
-              <item row="5" column="2">
-               <widget class="QLabel" name="label_18">
+              <item row="8" column="0">
+               <widget class="QLabel" name="label_cohesion">
                 <property name="text">
-                 <string>deg</string>
+                 <string>cohesion</string>
                 </property>
                </widget>
               </item>
               <item row="1" column="2">
-               <widget class="QLabel" name="label_17">
+               <widget class="QLabel" name="unit_thickness">
                 <property name="text">
                  <string>m</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="1">
+               <widget class="QDoubleSpinBox" name="layerCohesion">
+                <property name="singleStep">
+                 <double>0.050000000000000</double>
                 </property>
                </widget>
               </item>
               <item row="2" column="1">
                <widget class="QDoubleSpinBox" name="layerDryWeight"/>
               </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="label_14">
-                <property name="text">
-                 <string>Shear modulus</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QDoubleSpinBox" name="layerFrictionAngle">
-                <property name="decimals">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <double>60.000000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="2">
-               <widget class="QLabel" name="label_19">
+              <item row="8" column="2">
+               <widget class="QLabel" name="unitCohesion">
                 <property name="text">
                  <string>MPa</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_10">
+              <item row="3" column="2">
+               <widget class="QLabel" name="unit_gammaS">
                 <property name="text">
-                 <string>dry unit weight</string>
+                 <string>kN/m3</string>
                 </property>
                </widget>
               </item>
               <item row="3" column="0">
-               <widget class="QLabel" name="label_11">
+               <widget class="QLabel" name="label_gammaS">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -625,10 +626,30 @@
                 </property>
                </widget>
               </item>
-              <item row="0" column="0" colspan="3">
-               <widget class="QLabel" name="labelLayerProperties">
+              <item row="3" column="1">
+               <widget class="QDoubleSpinBox" name="layerSaturatedWeight"/>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="label_phi">
                 <property name="text">
-                 <string>Layer Properties</string>
+                 <string>friction angle</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QDoubleSpinBox" name="layerFrictionAngle">
+                <property name="decimals">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <double>60.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="2">
+               <widget class="QLabel" name="unit_phi">
+                <property name="text">
+                 <string>deg</string>
                 </property>
                </widget>
               </item>
@@ -1476,7 +1497,7 @@ Layers 2 &amp; 3:</string>
      <x>0</x>
      <y>0</y>
      <width>994</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOpenSeesPile">

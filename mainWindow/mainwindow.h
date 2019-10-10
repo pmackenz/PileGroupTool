@@ -116,6 +116,8 @@ private slots:
     void onSystemPlot_soilLayerSelected(int );
     void onSystemPlot_groundWaterSelected();
 
+    void on_layerCohesion_valueChanged(double arg1);
+
 private:
     Q_OBJECT
     Ui::MainWindow *ui;
