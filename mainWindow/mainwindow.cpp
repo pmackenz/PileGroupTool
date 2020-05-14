@@ -1281,6 +1281,7 @@ bool MainWindow::ReadFile(QString s)
     if (version.startsWith("1.") ) fileTypeError = false;
     if (version.startsWith("2.0") ) fileTypeError = false;
     if (version.startsWith("2.1") ) fileTypeError = false;
+    if (version.startsWith("2.2") ) fileTypeError = false;
 
     if (fileTypeError) {
         QMessageBox msg(QMessageBox::Information, "Info", "Not a valid model file.");
